@@ -62,10 +62,10 @@ export const Dashboard = ({navigation, route}) => {
 
     return(
         <View style={styles.container}>
-            <TouchableOpacity style={[styles.button, {right: 60}]}>
+            <TouchableOpacity onPress={() => navigation.navigate('UserProfile')} style={[styles.button, {right: 60}]}>
                 <Icon name='person-outline' type='ionicon' color={'#000'} size={15}/>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.button, {right: 20}]}>
+            <TouchableOpacity onPress={() => navigation.navigate('Map')} style={[styles.button, {right: 20}]}>
                 <Icon name='location-outline' type='ionicon' color={'#000'} size={16}/>
             </TouchableOpacity>
             <View style={styles.box}>
