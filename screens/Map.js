@@ -7,8 +7,10 @@ export const Map = ({navigation, route}) => {
     //const profile = route?.params?.profile;
 
     return(
-        /*
-        <View style={styles.container}>
+        <View>
+            <MapContainer>
+            
+            </MapContainer>
             <TouchableOpacity style={styles.back} onPress={() => {navigation.pop()}}>
                 <Icon name='chevron-back-outline' type='ionicon' color={'#000'} size={30}/>
             </TouchableOpacity>
@@ -19,10 +21,6 @@ export const Map = ({navigation, route}) => {
                 <Icon name='location-outline' type='ionicon' color={'#051034'} size={16}/>
             </TouchableOpacity>
         </View>
-        */
-       <MapContainer>
-
-       </MapContainer>
     );
 };
 
@@ -34,7 +32,8 @@ const styles = StyleSheet.create({
     back: {
         position: 'absolute',
         left: 20,
-        top: 80
+        top: 80,
+        zIndex: 0
     },
     button: {
         height: 27,
@@ -42,19 +41,20 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         position: 'absolute',
         top: 60,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        zIndex: 0
     },
     bubble: {
         flexDirection: 'row',
         alignSelf: 'flex-start',
         backgroundColor: '#fff',
-        borderRadius: 6,
+        borderRadius: 15,
         borderColor: '#ccc',
         borderWidth: 0.5,
         padding: 15
       },
       name: {
-        fontSize: 20,
+        fontSize: 24,
         marginBottom: 5,
         flexDirection: 'column'
       },
@@ -73,11 +73,27 @@ const styles = StyleSheet.create({
       },
       directions: {
         color: '#4287f5',
-        fontSize: 16
+        fontSize: 16,
+        marginBottom: 10
       },
       follow: {
         color: '#4287f5',
         fontSize: 16
+      },
+      absoluteFillObject: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        zIndex: -1
+      },
+      underline: {textDecorationLine: 'underline'},
+      calloutHighlight: {
+          backgroundColor: '#4DFFB4',
+          borderRadius: 5,
+          padding: 5,
+          alignSelf: 'flex-start'
       }
 });
 
@@ -100,7 +116,7 @@ class MapContainer extends React.Component {
       return (
         <View style={styles.container}>
           <MapView
-          style={StyleSheet.absoluteFillObject}
+          style = {styles.absoluteFillObject}
           provider={MapView.PROVIDER_GOOGLE}
           initialRegion = {center}
           >
@@ -111,7 +127,7 @@ class MapContainer extends React.Component {
                 pinColor = {marker.color}
                 title = {marker.title}
               >
-                <CustomCallout title = {marker.title} query = {marker.query} placeId = {marker.placeId}>
+                <CustomCallout title = {marker.title} query = {marker.query} placeId = {marker.placeId} address1 = {marker.address1} address2 = {marker.address2}>
   
                 </CustomCallout>
               </Marker>
@@ -128,28 +144,38 @@ class CustomCallout extends React.Component {
       this.title = props.title;
       this.query = props.query;
       this.placeId = props.placeId;
+      this.address1 = props.address1;
+      this.address2 = props.address2;
     }
   
     render() {
       return (
         <Callout tooltip>
-          <View style = {styles.bubble}>
-            <View style = {styles.callout}>
-              <Text style = {styles.name}>
-                {this.title}
-              </Text>
-              <View style = {styles.calloutButtons}>
-                <CalloutSubview
-                onPress = {() => Linking.openURL('https://www.google.com/maps/search/?api=1&query=' + this.query + '&query_place_id=' + this.placeId)}>
-                  <Text style = {styles.directions}>Directions</Text>
-                </CalloutSubview>
-  
-                <CalloutSubview>
-                  <Text style = {styles.follow}>Follow</Text>
-                </CalloutSubview>
-              </View>
+            <View style = {styles.bubble}>
+                <View style = {styles.callout}>
+                    <Text style = {styles.name}>
+                        {this.title}
+                    </Text>
+                    <Text>
+                        {this.address1}
+                    </Text>
+                    <Text style = {{marginBottom: 3}}>
+                        {this.address2}
+                    </Text>
+                    <CalloutSubview
+                    onPress = {() => Linking.openURL('https://www.google.com/maps/search/?api=1&query=' + this.query + '&query_place_id=' + this.placeId)}>
+                    <Text style = {[styles.directions, styles.underline]}>View on Maps</Text>
+                    </CalloutSubview>
+                    <View style = {styles.calloutHighlight}>
+                        <View style={{flexDirection: 'row'}}>
+                            <Icon name='star-outline' type='ionicon' size={16}/>
+                            <Text>
+                                2 tonnes harvested
+                            </Text>
+                        </View>
+                    </View>
+                </View>
             </View>
-          </View>
         </Callout>
       );
     }
@@ -169,9 +195,10 @@ const markers = [
         longitude:-91.571399
       },
       title: 'Lucky Star Farms',
-      color: randomColor(),
       query: 'lucky+star+farms',
-      placeId: 'ChIJ---GfHdH5IcRbsdgM8j32so'
+      placeId: 'ChIJ---GfHdH5IcRbsdgM8j32so',
+      address1: '2625 Hwy 1 SW, Iowa City, IA',
+      address2: '52240, United States'
     },
     {
       coordinate: {
@@ -179,9 +206,10 @@ const markers = [
         longitude: -91.513312
       },
       title: 'Calico Farm',
-      color: randomColor(),
       query: 'calico+farm',
-      placeId: 'ChIJSyR-c_lp5IcRPw1xizXHlu0'
+      placeId: 'ChIJSyR-c_lp5IcRPw1xizXHlu0',
+      address1: '1380 N Dodge St Ct, Iowa City, IA',
+      address2: '52245, United States'
     },
     {
       coordinate: {
@@ -189,8 +217,9 @@ const markers = [
         longitude: -91.4630386
       },
       title: 'Wilson\'s Orchard & Farm',
-      color: randomColor(),
       query: 'wilsons+orchard+farm',
-      placeId: 'ChIJy94QyN1o5IcRrw1e7gEl5Ns'
+      placeId: 'ChIJy94QyN1o5IcRrw1e7gEl5Ns',
+      address1: '4823 Dingleberry Rd NE #1, Iowa City, IA',
+      address2: '52240, United States'
     }
   ]
