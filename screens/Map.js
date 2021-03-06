@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     back: {
         position: 'absolute',
         left: 20,
-        top: 60
+        top: 80
     },
     button: {
         height: 27,
