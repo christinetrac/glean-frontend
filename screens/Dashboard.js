@@ -63,10 +63,10 @@ export const Dashboard = ({navigation, route}) => {
     return(
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.navigate('UserProfile')} style={[styles.button, {right: 60}]}>
-                <Icon name='person-outline' type='ionicon' color={'#000'} size={15}/>
+                <Icon name='person-outline' type='ionicon' color={'#9D9D9D'} size={15}/>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Map')} style={[styles.button, {right: 20}]}>
-                <Icon name='location-outline' type='ionicon' color={'#000'} size={16}/>
+                <Icon name='location-outline' type='ionicon' color={'#9D9D9D'} size={16}/>
             </TouchableOpacity>
             <View style={styles.box}>
                 <Text style={styles.title}>Andrew's Dashboard</Text>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         width: 27,
         borderRadius: 5,
         borderWidth: 1,
-        borderColor: '#5C5C5C',
+        borderColor: '#9D9D9D',
         position: 'absolute',
         top: 60,
         justifyContent: 'center'
