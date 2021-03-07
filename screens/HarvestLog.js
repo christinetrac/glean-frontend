@@ -34,6 +34,10 @@ export const HarvestLog = ({navigation, route}) => {
                     </View>
                 </View>
             </ScrollView>
+
+            <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Save</Text>
+            </TouchableOpacity>
         </View>
     );
 };
@@ -89,5 +93,22 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 15,
         color: '#051034'
-    }
+    },
+    button: {
+        backgroundColor: '#051034',
+        borderRadius: 5,
+        width:155,
+        height:35,
+        alignSelf:'center',
+        position:'absolute',
+        justifyContent: 'center',
+        bottom:65,
+        zIndex: 99
+    },
+    buttonText: {
+        fontWeight: '500',
+        fontSize: 15,
+        color: '#4DFFB4',
+        textAlign: 'center'
+    },
 });
