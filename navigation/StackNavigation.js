@@ -8,6 +8,7 @@ import { FarmProfile } from "../screens/FarmProfile";
 import { HarvestLog } from "../screens/HarvestLog";
 import { AddCrop } from "../screens/AddCrop";
 import { HarvestOverview } from "../screens/HarvestOverview";
+import { MachineLearning } from '../screens/MachineLearning';
 
 const Stack = createStackNavigator();
 
