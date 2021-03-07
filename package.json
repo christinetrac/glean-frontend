@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/material-top-tabs": "^5.3.14",
     "@react-navigation/native": "^5.9.3",
@@ -15,6 +16,13 @@
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
     "moment": "^2.29.1",
+    "@tensorflow-models/mobilenet": "^2.1.0",
+    "@tensorflow/tfjs": "^3.2.0",
+    "@tensorflow/tfjs-react-native": "^0.5.0",
+    "expo-camera": "~9.1.0",
+    "expo-gl": "^10.1.0",
+    "expo-image-picker": "~9.2.0",
+    "jpeg-js": "^0.4.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
@@ -22,6 +30,7 @@
     "react-native-calendars": "^1.1254.0",
     "react-native-common-date-picker": "^2.3.3",
     "react-native-elements": "^3.2.0",
+    "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "~1.8.0",
     "react-native-maps": "^0.27.1",
     "react-native-progress": "^4.1.2",
@@ -31,7 +40,8 @@
     "react-native-switch": "^2.0.0",
     "react-native-switch-selector": "^2.0.6",
     "react-native-tab-view": "^2.15.2",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
