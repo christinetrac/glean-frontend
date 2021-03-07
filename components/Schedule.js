@@ -146,8 +146,15 @@ export const Schedule = ({navigation}) => {
             return (
                 <View style={styles.availability}>
                     <Text style={styles.notSetText}>You have not set an availability.</Text>
-                    <TouchableOpacity style={styles.button} onPress={() => handleSetAvailability()}>
-                        <Text style={styles.buttonText}>Set Availability</Text>
+                    <TouchableOpacity style={[styles.button, {flexDirection:'row'}]} onPress={() => handleSetAvailability()}>
+                        <View style={{ height:18,
+                            width:18,
+                            borderWidth: 2,
+                            borderColor: '#4DFFB4',
+                            borderRadius: 2, marginRight:8, marginTop:8}}>
+                            <Icon name='add-outline' type='ionicon' color={'#4DFFB4'} size={12}/>
+                        </View>
+                        <Text style={[styles.buttonText, {marginTop:8}]}>Set Availability</Text>
                     </TouchableOpacity>
                 </View>
             )
@@ -165,8 +172,12 @@ export const Schedule = ({navigation}) => {
                         <View style={{height:11, width:11, borderRadius:11, marginTop:2, marginRight:10, backgroundColor:'#FF4545'}}/>
                         <Text style={{fontSize:15}}>5:00 PM</Text>
                     </View>
-                    <TouchableOpacity style={[styles.button, {right:20, top:100}]}>
-                        <Text style={styles.buttonText}>Edit Availability</Text>
+                    <TouchableOpacity style={[styles.button, {right:20, top:100, flexDirection:'row'}]}>
+                        <View style={{
+                           marginRight:8, marginTop:8}}>
+                            <Icon name='edit' color={'#4DFFB4'} size={16}/>
+                        </View>
+                        <Text style={[styles.buttonText, {marginTop:8}]}>Edit Availability</Text>
                     </TouchableOpacity>
                 </View>
             )
