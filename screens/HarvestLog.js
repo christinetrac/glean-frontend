@@ -39,6 +39,9 @@ export const HarvestLog = ({navigation, route}) => {
             <TouchableOpacity style={styles.back} onPress={() => {navigation.pop()}}>
                 <Icon name='chevron-back-outline' type='ionicon' color={'#000'} size={30}/>
             </TouchableOpacity>
+            <TouchableOpacity style={[styles.buttons, {borderWidth: 1, borderColor: '#9D9D9D',right: 100}]} onPress={() => navigation.navigate('Dashboard')}>
+                <Icon name='home-outline' type='ionicon' color={'#9D9D9D'} size={15}/>
+            </TouchableOpacity>
             <TouchableOpacity style={[styles.buttons, {borderWidth: 1, borderColor: '#9D9D9D',right: 60}]}>
                 <Icon name='person-outline' type='ionicon' color={'#9D9D9D'} size={15}/>
             </TouchableOpacity>
@@ -63,7 +66,7 @@ export const HarvestLog = ({navigation, route}) => {
                 </View>
             </ScrollView>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('HarvestSubmitted', {farm:farm})}>
                 <Text style={styles.buttonText}>Submit</Text>
             </TouchableOpacity>
         </View>

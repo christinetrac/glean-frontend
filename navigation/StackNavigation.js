@@ -7,6 +7,7 @@ import { Map } from "../screens/Map";
 import { FarmProfile } from "../screens/FarmProfile";
 import { HarvestLog } from "../screens/HarvestLog";
 import { AddCrop } from "../screens/AddCrop";
+import { HarvestSubmitted } from "../screens/HarvestSubmitted";
 import { HarvestOverview } from "../screens/HarvestOverview";
 
 const Stack = createStackNavigator();
@@ -67,6 +68,15 @@ const StackNavigation = (props) => {
                               gesturesEnabled: false
                           }}/>
             <Stack.Screen name="AddCrop" component={AddCrop}
+                          options={{
+                              title: null,
+                              headerStyle: {
+                                  height: 0
+                              },
+                              headerLeft: null,
+                              gesturesEnabled: false
+                          }}/>
+            <Stack.Screen name="HarvestSubmitted" component={HarvestSubmitted}
                           options={{
                               title: null,
                               headerStyle: {

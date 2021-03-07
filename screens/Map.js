@@ -9,10 +9,11 @@ export const Map = ({navigation, route}) => {
     return(
         <View>
             <MapContainer>
-            
+
             </MapContainer>
-            <TouchableOpacity style={styles.back} onPress={() => {navigation.pop()}}>
-                <Icon name='chevron-back-outline' type='ionicon' color={'#000'} size={30}/>
+
+            <TouchableOpacity style={[styles.button, {borderWidth: 1, borderColor: '#9D9D9D',right: 100}]} onPress={() => navigation.navigate('Dashboard')}>
+                <Icon name='home-outline' type='ionicon' color={'#9D9D9D'} size={15}/>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('UserProfile')} style={[styles.button, { borderWidth: 1, borderColor: '#9D9D9D',right: 60}]}>
                 <Icon name='person-outline' type='ionicon' color={'#9D9D9D'} size={15}/>
@@ -128,7 +129,7 @@ class MapContainer extends React.Component {
                 title = {marker.title}
               >
                 <CustomCallout title = {marker.title} query = {marker.query} placeId = {marker.placeId} address1 = {marker.address1} address2 = {marker.address2}>
-  
+
                 </CustomCallout>
               </Marker>
             ))}
@@ -147,7 +148,7 @@ class CustomCallout extends React.Component {
       this.address1 = props.address1;
       this.address2 = props.address2;
     }
-  
+
     render() {
       return (
         <Callout tooltip>
@@ -187,7 +188,7 @@ function randomColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-  
+
 const markers = [
     {
       coordinate: {

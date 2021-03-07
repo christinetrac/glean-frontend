@@ -62,6 +62,9 @@ export const Dashboard = ({navigation, route}) => {
 
     return(
         <View style={styles.container}>
+            <TouchableOpacity style={[styles.button, {borderWidth:0, right: 100,  backgroundColor:'#4DFFB4'}]} onPress={() => navigation.navigate('Dashboard')}>
+                <Icon name='home-outline' type='ionicon' color={'#051034'} size={15}/>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('UserProfile')} style={[styles.button, {right: 60}]}>
                 <Icon name='person-outline' type='ionicon' color={'#9D9D9D'} size={15}/>
             </TouchableOpacity>

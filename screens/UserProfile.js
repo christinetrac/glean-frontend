@@ -13,8 +13,8 @@ export const UserProfile = ({navigation, route}) => {
 
     return(
         <View style={styles.container}>
-            <TouchableOpacity style={styles.back} onPress={() => {navigation.pop()}}>
-                <Icon name='chevron-back-outline' type='ionicon' color={'#000'} size={30}/>
+            <TouchableOpacity style={[styles.button, {borderWidth: 1, borderColor: '#9D9D9D',right: 100}]} onPress={() => navigation.navigate('Dashboard')}>
+                <Icon name='home-outline' type='ionicon' color={'#9D9D9D'} size={15}/>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, {border:'none', right: 60,  backgroundColor:'#4DFFB4'}]}>
                 <Icon name='person-outline' type='ionicon' color={'#051034'} size={15}/>

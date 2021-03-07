@@ -44,8 +44,8 @@ export const HarvestOverview = ({navigation, route}) => {
 
     return(
         <View style={styles.container}>
-            <TouchableOpacity style={styles.back} onPress={() => {navigation.pop()}}>
-                <Icon name='chevron-back-outline' type='ionicon' color={'#000'} size={30}/>
+            <TouchableOpacity style={[styles.buttons, {borderWidth: 1, borderColor: '#9D9D9D',right: 100}]} onPress={() => navigation.navigate('Dashboard')}>
+                <Icon name='home-outline' type='ionicon' color={'#9D9D9D'} size={15}/>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.buttons, {borderWidth: 1, borderColor: '#9D9D9D',right: 60}]}>
                 <Icon name='person-outline' type='ionicon' color={'#9D9D9D'} size={15}/>
@@ -53,7 +53,7 @@ export const HarvestOverview = ({navigation, route}) => {
             <TouchableOpacity onPress={() => navigation.navigate('Map')} style={[styles.buttons, {borderWidth: 1, borderColor: '#9D9D9D',right: 20}]}>
                 <Icon name='location-outline' type='ionicon' color={'#9D9D9D'} size={16}/>
             </TouchableOpacity>
-            <Text style={styles.subtitle}>{farm.name}</Text>
+            <Text style={styles.subtitle}>{farm?.name}</Text>
             <Text style={styles.title}>Harvest Overview</Text>
             <Text style={{fontSize:15,marginLeft:25, marginTop:20, marginBottom:15}}>Logged Crops</Text>
             <View style={styles.cardsContainer}>
