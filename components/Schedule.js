@@ -33,6 +33,25 @@ export const Schedule = ({navigation}) => {
         setAvailabilityPopupVisible(!availabilityPopupVisible);
         setStartTime('');
         setEndTime('');
+        fetch('https://us-central1-cuhacks21.cloudfunctions.net/scheduler', {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "user": "achoo",
+                "date": 13,
+                "start_time": 11,
+                "end_time": 15
+            })
+        })
+            .then(response => response.json())
+            .then(json => console.log(json))
+            .catch(err => {
+                console.log(err.name);
+                console.log(err.message);
+            })
     };
 
     const onChangeStart = (input) => {

@@ -113,6 +113,12 @@ const center = {
   };
 
 class MapContainer extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        markers: []
+      }
+    }
     render() {
       return (
         <View style={styles.container}>
@@ -121,7 +127,7 @@ class MapContainer extends React.Component {
           provider={MapView.PROVIDER_GOOGLE}
           initialRegion = {center}
           >
-            {markers.map(marker => (
+            {this.state.markers.map(marker => (
               <Marker
                 key = {marker.title}
                 coordinate = {marker.coordinate}
@@ -136,6 +142,28 @@ class MapContainer extends React.Component {
           </MapView>
         </View>
       );
+    }
+
+    componentDidMount() {
+      fetch('https://us-central1-cuhacks21.cloudfunctions.net/farm-loc', {
+        method: "post",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            minLat: 31.655438,
+            maxLat: 41.8180398
+        })
+      }).then(res => res.json())
+        .then(data => {
+          console.log(data);
+          this.setState({markers: data});
+        })
+        .catch(err => {
+          console.log(err.name);
+          console.log(err.message);
+        })
     }
   }
 
@@ -181,14 +209,7 @@ class CustomCallout extends React.Component {
       );
     }
   }
-
-
-function randomColor() {
-    return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}
-
+  
 const markers = [
     {
       coordinate: {
