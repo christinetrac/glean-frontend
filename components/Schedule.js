@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, Image} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import {Icon, Overlay} from "react-native-elements";
 import SwitchSelector from "react-native-switch-selector";
@@ -227,6 +227,7 @@ export const Schedule = ({navigation}) => {
             />
             {bottomPopup()}
             {availabilityPopup()}
+            <Image source={require('../assets/profile.png')} style={styles.img}/>
         </View>
     );
 };
@@ -329,5 +330,12 @@ const styles = StyleSheet.create({
     popupLabel: {
         marginTop:10,
         fontSize: 15
+    },
+    img:{
+        position:'absolute',
+        bottom:-55,
+        width:490,
+        height:280,
+        left:-35
     }
 });

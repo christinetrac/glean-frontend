@@ -7,6 +7,8 @@ export const SignIn = ({navigation}) => {
 
     return(
         <View style={styles.container}>
+            <Image source={require('../assets/logo.png')} style={styles.img1}/>
+            <Image source={require('../assets/glean.png')} style={styles.img2}/>
             <View style={[styles.inputBox, {bottom:400}]}>
                 <Text style={styles.label}>Email</Text>
                 <TextInput
@@ -41,6 +43,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         height: 100 + '%'
     },
+    img1: {
+        position:'absolute',
+        width:207,
+        height:223,
+        top:90,
+        alignSelf:'center'
+    },
+    img2: {
+        position:'absolute',
+        width:240,
+        height:72,
+        top:270,
+        alignSelf:'center'
+    },
     inputBox: {
         position: 'absolute',
     },
@@ -69,7 +85,7 @@ const styles = StyleSheet.create({
         height: 50,
         position: 'absolute',
         alignSelf: 'center',
-        bottom: 130,
+        bottom: 180,
         justifyContent: 'center'
     },
     signInLabel: {
@@ -81,7 +97,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         textAlign: 'center',
         position: 'absolute',
-        bottom: 60,
+        bottom: 120,
     },
     quest: {
         fontSize: 14,
