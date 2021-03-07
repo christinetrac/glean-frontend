@@ -24,10 +24,10 @@ export const Analytics = ({navigation}) => {
                     <Text style={styles.smallText}>Expert</Text>
                 </View>
             </View>
-            <Text style={styles.label}>Gleaning Statistics</Text>
-            <View style={styles.statisticsBox}>
-
-            </View>
+            <Text style={{width:215, alignSelf:'center', textAlign:'center', fontSize:15}}>
+                Glean <Text style={{fontWeight:'600'}}>287</Text> lbs more to become an Expert Harvester!
+            </Text>
+            <Image source={require('../assets/profile.png')} style={styles.img}/>
         </View>
     );
 };
@@ -89,5 +89,12 @@ const styles = StyleSheet.create({
         height: 240,
         borderRadius: 5,
         backgroundColor: '#EAFFF6',
+    },
+    img:{
+        position:'absolute',
+        bottom:-55,
+        width:490,
+        height:280,
+        left:-35
     }
 });
