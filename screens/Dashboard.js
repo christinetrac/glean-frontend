@@ -48,7 +48,7 @@ export const Dashboard = ({navigation, route}) => {
     ];
 
     const pastCards = pastHarvests.map( farm => (
-            <TouchableOpacity style={{zIndex:10}} key={farm.name}>
+            <TouchableOpacity style={{zIndex:10}} key={farm.name} onPress={() => navigation.navigate('HarvestOverview', {farm:farm})}>
                 <View style={{marginRight:10, marginLeft:15}}>
                     <View style={styles.card}>
                         <ImageBackground source={farm.image} style={styles.image}>
