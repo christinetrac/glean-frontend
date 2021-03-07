@@ -71,7 +71,7 @@ export const Dashboard = ({navigation, route}) => {
             <View style={styles.box}>
                 <Text style={styles.title}>Andrew's Dashboard</Text>
                 <View style={styles.rankBox}>
-                    <Icon name='trophy-outline' type='ionicon' color={'#4DFFB4'} size={12}/>
+                    <Icon name='trophy-outline' type='ionicon' color={'#4DFFB4'} size={16}/>
                     <Text style={styles.rank}>Intermediate Harvester</Text>
                 </View>
                 <View style={{height: 150, width:400, paddingLeft:0, paddingRight:0, alignSelf:'center'}}>
