@@ -50,21 +50,23 @@ export const HarvestLog = ({navigation, route}) => {
             </TouchableOpacity>
             <Text style={styles.subtitle}>{farm.name}</Text>
             <Text style={styles.title}>Harvest Log</Text>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={styles.list}>
-                    {logs ? cards: <View/>}
-                    <View style={styles.addBox}>
-                        <View style={{flexDirection:'row'}}>
-                            <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddCrop', {farm:farm})}>
-                                <View style={{marginLeft:2, marginTop:-1}}>
-                                    <Icon name='add-outline' type='ionicon' color={'#4DFFB4'} size={30}/>
-                                </View>
-                            </TouchableOpacity>
-                            <Text style={[styles.text, {marginLeft: 40, marginTop:7}]}>Add Crop</Text>
+            <View style={{height:570}}>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <View style={styles.list}>
+                        {logs ? cards: <View/>}
+                        <View style={styles.addBox}>
+                            <View style={{flexDirection:'row'}}>
+                                <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddCrop', {farm:farm})}>
+                                    <View style={{marginLeft:2, marginTop:-1}}>
+                                        <Icon name='add-outline' type='ionicon' color={'#4DFFB4'} size={30}/>
+                                    </View>
+                                </TouchableOpacity>
+                                <Text style={[styles.text, {marginLeft: 40, marginTop:7}]}>Add Crop</Text>
+                            </View>
                         </View>
                     </View>
-                </View>
-            </ScrollView>
+                </ScrollView>
+            </View>
 
             <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('HarvestSubmitted', {farm:farm})}>
                 <Text style={styles.buttonText}>Submit</Text>
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
         marginTop: 142,
     },
     list: {
-        marginTop:20
+        marginTop:20,
     },
     addBox: {
         width:366,
