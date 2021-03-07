@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, ScrollView, TouchableOpacity, ImageBackground} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, TouchableOpacity, ImageBackground, Image} from 'react-native';
 import {Icon} from "react-native-elements";
 
 export const Dashboard = ({navigation, route}) => {
@@ -62,6 +62,12 @@ export const Dashboard = ({navigation, route}) => {
 
     return(
         <View style={styles.container}>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                <View style={{flexDirection:'row'}}>
+                    <Image source={require('../assets/dashboard1.png')} style={styles.img1}/>
+                    <Image source={require('../assets/dashboard2.png')} style={styles.img2}/>
+                </View>
+            </ScrollView>
             <TouchableOpacity style={[styles.button, {borderWidth:0, right: 100,  backgroundColor:'#4DFFB4'}]} onPress={() => navigation.navigate('Dashboard')}>
                 <Icon name='home-outline' type='ionicon' color={'#051034'} size={15}/>
             </TouchableOpacity>
@@ -104,6 +110,17 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
         height: 100 + '%'
+    },
+    img1:{
+        top:60,
+        height:340,
+        width:470,
+        left:0
+    },
+    img2:{
+        top:60,
+        height:340,
+        width:470,
     },
     button: {
         height: 27,
