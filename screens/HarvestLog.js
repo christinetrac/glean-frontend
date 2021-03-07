@@ -1,11 +1,38 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView, ImageBackground} from 'react-native';
 import {Icon} from "react-native-elements";
 
 export const HarvestLog = ({navigation, route}) => {
     const farm = route?.params?.farm;
+    const newLog = route?.params?.log;
 
     const [logs, setLogs] = useState([]);
+
+    useEffect(() => {
+        addLog();
+    }, [newLog]);
+
+    const addLog = () => {
+        const totalLogs = logs.concat(newLog);
+        setLogs(totalLogs);
+    };
+
+    const cards = (logs.splice(1))?.map( log => (
+            <View style={{zIndex:10}} key={log?.name}>
+                <View style={{marginLeft:25, marginBottom:17}}>
+                    <View style={styles.card}>
+                        <ImageBackground source={log?.image} style={styles.image}>
+                        </ImageBackground>
+                        <Text style={styles.lbs}>{log?.yield} lbs.</Text>
+                        <Text style={styles.farmName}>{log?.name}</Text>
+                        <TouchableOpacity style={styles.close}>
+                            <Icon name='close-outline' type='ionicon' color={'#000'} size={28}/>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+        )
+    );
 
     return(
         <View style={styles.container}>
@@ -22,6 +49,7 @@ export const HarvestLog = ({navigation, route}) => {
             <Text style={styles.title}>Harvest Log</Text>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.list}>
+                    {logs ? cards: <View/>}
                     <View style={styles.addBox}>
                         <View style={{flexDirection:'row'}}>
                             <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddCrop', {farm:farm})}>
@@ -36,7 +64,7 @@ export const HarvestLog = ({navigation, route}) => {
             </ScrollView>
 
             <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Save</Text>
+                <Text style={styles.buttonText}>Submit</Text>
             </TouchableOpacity>
         </View>
     );
@@ -93,6 +121,47 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 15,
         color: '#051034'
+    },
+    close: {
+        position: 'absolute',
+        right: 15,
+        top: 15
+    },
+    card: {
+        width: 360,
+        height: 130,
+        backgroundColor: '#97FFCE',
+        borderRadius: 5,
+        overflow: 'hidden',
+        zIndex: 2,
+    },
+    cardName: {
+        position: 'absolute',
+        right: 0,
+        justifyContent: 'center'
+    },
+    image: {
+        flex: 1,
+        height: 130,
+        width:130,
+        resizeMode: 'cover',
+        justifyContent: "center"
+    },
+    farmName: {
+        fontSize: 20,
+        marginLeft: 33,
+        textTransform: 'capitalize',
+        fontWeight:'600',
+        position:'absolute',
+        top:40,
+        left:125
+    },
+    lbs: {
+        fontSize: 15,
+        marginLeft: 33,
+        position:'absolute',
+        top:70,
+        left:125
     },
     button: {
         backgroundColor: '#051034',
