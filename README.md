@@ -1,5 +1,7 @@
 # Glean Frontend
 
+Link to backend: https://github.com/andrewjeminchoi/glean-backend
+
 ## Install Instructions
 Clone Repo
 
